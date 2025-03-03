@@ -22,7 +22,7 @@ public class FormSubmissionTest extends BaseTest {
 
     @Test(description = "firstTest")
     public void formSubmissionTest() {
-        String name = System.getProperty("myArg", "Anton");
+        String name = System.getProperty("myArg", "Щnton");
         String email = System.getProperty("myArg", " anton@example.com");
         String message = System.getProperty("myArg", "Test Message");
 
