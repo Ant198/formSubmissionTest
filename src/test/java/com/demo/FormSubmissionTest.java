@@ -1,10 +1,11 @@
 package com.demo;
 
-import com.codeborne.selenide.SelenideElement;
 import com.demo.actions.Actions;
 import com.demo.core.base.BaseTest;
 import com.demo.pages.Pages;
 import com.demo.utils.Constants;
+import com.demo.utils.CsvReader;
+import com.opencsv.exceptions.CsvException;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
@@ -21,10 +22,14 @@ import static com.codeborne.selenide.Selenide.sleep;
 public class FormSubmissionTest extends BaseTest {
 
     @Test(description = "firstTest")
-    public void formSubmissionTest() {
-        String name = System.getProperty("myArg", "Щnton");
-        String email = System.getProperty("myArg", " anton@example.com");
-        String message = System.getProperty("myArg", "Test Message");
+    public void formSubmissionTest() throws CsvException {
+        List<String[]> data = CsvReader.readCSV(Constants.CSVPATH);
+        for(String[]row : data) {
+            System.setProperty(row[0], row[1]);
+        }
+        String name = System.getProperty("name");
+        String email = System.getProperty("email");
+        String message = System.getProperty("message");
 
         logInfo("name is " + name);
         logInfo("email is " + email);
