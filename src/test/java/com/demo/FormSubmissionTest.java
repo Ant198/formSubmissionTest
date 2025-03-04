@@ -11,10 +11,7 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.util.List;
-
-import static com.codeborne.selenide.Selenide.sleep;
 
 @Epic("Test Epic")
 @Feature("Test feature")
