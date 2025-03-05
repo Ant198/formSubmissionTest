@@ -4,7 +4,7 @@
 
     <test name="FormSubmissionTest">
         <classes>
-            <class name="com.demo.FormSubmissionTest"/>
+            <class name="com.demo.ContactFormSubmissionTest"/>
         </classes>
     </test>
 

@@ -16,7 +16,7 @@ import java.util.List;
 @Epic("Test Epic")
 @Feature("Test feature")
 @Owner("QA Fedorov Anton")
-public class FormSubmissionTest extends BaseTest {
+public class ContactFormSubmissionTest extends BaseTest {
 
     @Test(description = "firstTest")
     public void formSubmissionTest() throws CsvException {

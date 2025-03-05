@@ -3,10 +3,12 @@ package com.demo.pages;
 import com.demo.core.base.PageTools;
 import org.openqa.selenium.By;
 
-public class ContactPage extends PageTools {
+public class PilotProjectPage extends PageTools {
     private final By nameFieldLocator = By.xpath("//input[@data-original_id=\"name\"]");
     private final By emailFieldLocator = By.xpath("//input[@data-original_id=\"email\"]");
     private final By messageFieldLocator = By.xpath("//textarea[@data-original_id=\"message\"]");
+    private final By companyFieldLocator = By.xpath("//input[@data-original_id=\"company\"]");
+    private final By countryFieldLocator = By.xpath("//select[@data-original_id=\"country\"]");
     private final By submitLocator = By.xpath("//button[@name=\"et_builder_submit_button\"]");
     private final By captchaLocator = By.xpath("//input[@name=\"et_pb_contact_captcha_0\"]");
     private final By questionCaptchaLocator = By.xpath("//span[contains(@class,\"et_pb_contact_captcha_question\")]");
@@ -22,6 +24,16 @@ public class ContactPage extends PageTools {
 
     public void enterMessage(String message) {
         type(message, messageFieldLocator);
+    }
+
+    public void enterCompanyName(String company) {
+        type(company, companyFieldLocator);
+    }
+
+    public void selectCountry(String text) {
+        String option = String.format("//select[@data-original_id=\"country\"]/option[text()=\"%s\"]", text);
+        clickIfExist(countryFieldLocator);
+        click(By.xpath(option));
     }
 
     public void enterCaptcha(String captcha) {
@@ -54,5 +66,4 @@ public class ContactPage extends PageTools {
     public String getQuestionCaptcha() {
         return getElementText(questionCaptchaLocator);
     }
-
 }

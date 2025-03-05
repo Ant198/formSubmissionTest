@@ -21,7 +21,7 @@ public class AllureTools {
             return new byte[0];
         }
     }
-
+/*
     @SuppressWarnings({"UnusedReturnValue", "ResultOfMethodCallIgnored"})
     @Attachment(value = "Log File", type = "text/plain")
     public static byte[] attachLogFile() {
@@ -49,4 +49,6 @@ public class AllureTools {
 
         return null;
     }
+
+ */
 }
