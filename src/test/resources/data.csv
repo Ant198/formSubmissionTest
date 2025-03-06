@@ -1,3 +1,7 @@
-name, Anton
-email, anton@example.com
-message, Test Message
+name,Anton
+email,anton@example.com
+message,Test Message
+company,Blue Sky
+country,Ukraine
+phone,+380332223344
+pathToCV,src/test/resources/Resume.pdf

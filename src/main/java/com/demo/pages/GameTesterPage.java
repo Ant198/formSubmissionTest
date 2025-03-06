@@ -13,9 +13,14 @@ public class GameTesterPage extends PageTools {
     private final By questionCaptchaLocator = By.xpath("//span[contains(@class,\"et_pb_contact_captcha_question\")]");
     private final By successMessageLocator = By.xpath("//div[@id=\"et_pb_contact_form_0\"]");
     private final By submitLocator = By.xpath("//button[@name=\"et_builder_submit_button\"]");
+    private final By uploadFileLocator = By.xpath("//input[@type=\"file\"]");
+    private final By proofUploadLocator = By.xpath("//span[contains(@class, \"et_pb_file_chosen_desc\")]");
 
     public void selectSection() {
         click(sectionLocator);
+    }
+    public boolean isVisible() {
+        return isElementVisible(sectionLocator);
     }
 
     public void enterName(String name) {
@@ -42,6 +47,14 @@ public class GameTesterPage extends PageTools {
         click(submitLocator);
     }
 
+    public void uploadFile (String path) {
+        uploadFile(path, uploadFileLocator);
+    }
+
+    public boolean verifySuccesText() {
+        return getElementText(proofUploadLocator).contains("selected");
+    }
+
     public String getName() {
         return getElementAttributeValue("value", nameFieldLocator);
     }
@@ -54,7 +67,7 @@ public class GameTesterPage extends PageTools {
         return  getElementAttributeValue("value", messageFieldLocator);
     }
 
-    public String getPhone() { return getElementAttributeValue("value", messageFieldLocator);}
+    public String getPhone() { return getElementAttributeValue("value", phoneFieldLocator);}
 
     public Boolean getSuccessMessage() {
         return isElementVisible(successMessageLocator);

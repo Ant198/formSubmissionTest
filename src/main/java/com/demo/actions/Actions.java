@@ -4,7 +4,11 @@ import org.checkerframework.checker.units.qual.C;
 
 public class Actions {
    private static MainActions mainActions;
-   private static CaptchaActions captchaActions;
+   private static ContactActions contactActions;
+   private static AutomatedTestEnginActions automatedTestEnginActions;
+   private static GameTesterActions gameTesterActions;
+   private static PilotProjectActions pilotProjectActions;
+   private static SoftwearTesterActions softwearTesterActions;
 
     public static MainActions mainActions() {
         if (mainActions == null) {
@@ -13,10 +17,38 @@ public class Actions {
         return mainActions;
     }
 
-    public static CaptchaActions captchaActions() {
-        if (captchaActions == null) {
-            captchaActions = new CaptchaActions();
+    public static ContactActions contactActions() {
+        if (contactActions == null) {
+            contactActions = new ContactActions();
         }
-        return captchaActions;
+        return contactActions;
+    }
+
+    public static AutomatedTestEnginActions automatedTestEnginActions() {
+        if (automatedTestEnginActions == null) {
+            automatedTestEnginActions = new AutomatedTestEnginActions();
+        }
+        return automatedTestEnginActions;
+    }
+
+    public static GameTesterActions gameTesterActions() {
+        if (gameTesterActions == null) {
+            gameTesterActions = new GameTesterActions();
+        }
+        return gameTesterActions;
+    }
+
+    public static SoftwearTesterActions softwearTesterActions() {
+        if (softwearTesterActions == null) {
+            softwearTesterActions = new SoftwearTesterActions();
+        }
+        return softwearTesterActions;
+    }
+
+    public static PilotProjectActions pilotProjectActions() {
+        if (pilotProjectActions == null) {
+            pilotProjectActions = new PilotProjectActions();
+        }
+        return pilotProjectActions;
     }
 }

@@ -1,5 +1,6 @@
 package com.demo.pages;
 
+import com.codeborne.selenide.Condition;
 import com.demo.core.base.PageTools;
 import org.openqa.selenium.By;
 
@@ -31,8 +32,8 @@ public class PilotProjectPage extends PageTools {
     }
 
     public void selectCountry(String text) {
-        String option = String.format("//select[@data-original_id=\"country\"]/option[text()=\"%s\"]", text);
-        clickIfExist(countryFieldLocator);
+        String option = String.format("//select[@data-original_id=\"country\"]/option[@value=\"%s\"]", text);
+        click(countryFieldLocator);
         click(By.xpath(option));
     }
 
@@ -57,6 +58,11 @@ public class PilotProjectPage extends PageTools {
 
     public Boolean getSuccessMessage() {
         return isElementVisible(successMessageLocator);
+    }
+
+
+    public boolean isCountrySelected(String name) {
+        return isCondition(Condition.selectedText(name), countryFieldLocator);
     }
 
     public String getCaptcha() {

@@ -5,9 +5,9 @@ import com.demo.core.allure.AllureLogger;
 public class Pages extends AllureLogger {
     public static ContactPage contactPage;
     public static PilotProjectPage pilotProjectPage;
-    public static JuniorSoftwareTesterPage juniorSoftwareTesterPage;
+    public static SoftwareTesterPage softwareTesterPage;
     public static GameTesterPage gameTesterPage;
-    public static  AutomatedTestEnginPage automatedTestEnginPage;
+    public static AutomatedTestEnginPage automatedTestEnginPage;
 
 
     public static PilotProjectPage pilotProjectPage() {
@@ -24,11 +24,11 @@ public class Pages extends AllureLogger {
         return contactPage;
     }
 
-    public static JuniorSoftwareTesterPage juniorSoftwareTesterPage() {
-        if (juniorSoftwareTesterPage == null) {
-            juniorSoftwareTesterPage = new JuniorSoftwareTesterPage();
+    public static SoftwareTesterPage softwareTesterPage() {
+        if (softwareTesterPage == null) {
+            softwareTesterPage = new SoftwareTesterPage();
         }
-        return juniorSoftwareTesterPage;
+        return softwareTesterPage;
     }
 
     public static GameTesterPage gameTesterPage() {
