@@ -5,9 +5,13 @@ import com.demo.actions.Actions;
 import com.demo.core.allure.AllureLogger;
 import com.demo.core.config.SelenideConfig;
 import com.demo.utils.Constants;
+import com.demo.utils.SelenideTools;
 import org.checkerframework.checker.units.qual.C;
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+
+import java.util.ArrayList;
 
 @Listeners({TestListener.class})
 public class BaseTest extends AllureLogger {
@@ -19,12 +23,12 @@ public class BaseTest extends AllureLogger {
         SelenideConfig.createBrowserConfig(System.getProperty("selenide.browser", "chrome"));
         configLog(this.getClass().getSimpleName());
         logInfo("Open browser...");
-        Selenide.open();
+        Selenide.open(Constants.URL);
     }
 
 
     @AfterTest(alwaysRun = true, description = "Closing web browser...")
-    public void tearDown(ITestResult result) {
+    public void tearDown() {
         Selenide.closeWebDriver();
         logInfo("Web driver closed!");
     }

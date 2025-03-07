@@ -11,6 +11,7 @@ import org.openqa.selenium.WindowType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AutomatedTestEnginPageTest extends BaseTest {
@@ -30,12 +31,11 @@ public class AutomatedTestEnginPageTest extends BaseTest {
         logInfo("name is " + name);
         logInfo("email is " + email);
         logInfo("message is " + message);
-/*
-        SelenideTools.switchTo().newWindow(WindowType.TAB);
-        SelenideTools.getDriver().navigate().to(Constants.AUTOMATEDTESTENGINURL);
-        Assert.assertEquals(Actions.mainActions().getCurrentUrl(), Constants.AUTOMATEDTESTENGINURL, "page not found");
-*/
+
         Actions.mainActions().openNewTab();
+        Actions.mainActions().switchToTab(1);
+        SelenideTools.openUrl(Constants.AUTOMATEDTESTENGINURL);
+
         Pages.automatedTestEnginPage().selectSection();
         Pages.automatedTestEnginPage().enterName(name);
         Pages.automatedTestEnginPage().enterEmail(email);

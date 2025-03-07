@@ -13,6 +13,8 @@ import io.qameta.allure.Owner;
 import org.openqa.selenium.WindowType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Epic("Test Epic")
@@ -21,6 +23,7 @@ import java.util.List;
 public class ContactFormSubmissionTest extends BaseTest {
 
     @Test(description = "firstTest")
+
     public void formSubmissionTest() throws CsvException {
         List<String[]> data = CsvReader.readCSV(Constants.CSVPATH);
         for(String[]row : data) {

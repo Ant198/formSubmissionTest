@@ -28,18 +28,22 @@ public class SoftwareTesterPageTest extends BaseTest {
         String email = System.getProperty("email");
         String message = System.getProperty("message");
         String phone = System.getProperty("phone");
+        String pathToCV = System.getProperty("pathToCV");
 
         logInfo("name is " + name);
         logInfo("email is " + email);
         logInfo("message is " + message);
+
         Actions.mainActions().openNewTab();
-        Actions.mainActions().switchToTab(2);
+        Actions.mainActions().switchToTab(1);
+        SelenideTools.openUrl(Constants.SOFTWARETESTERURL);
 
         Pages.softwareTesterPage().selectSection();
         Pages.softwareTesterPage().enterName(name);
         Pages.softwareTesterPage().enterEmail(email);
         Pages.softwareTesterPage().enterMessage(message);
         Pages.softwareTesterPage().enterPhone(phone);
+        Pages.softwareTesterPage().uploadFile(pathToCV);
         Pages.pilotProjectPage().enterCaptcha(Actions.softwearTesterActions().getCaptchaResult());
         Pages.pilotProjectPage().submitForm();
         Assert.assertTrue(Pages.softwareTesterPage().isVisible(), "problems with section selection");

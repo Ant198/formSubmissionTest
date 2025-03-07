@@ -32,7 +32,8 @@ public class PilotProjectFormSubmissionTest extends BaseTest {
         logInfo("message is " + message);
 
         Actions.mainActions().openNewTab();
-        Actions.mainActions().switchToTab(1);
+        Actions.mainActions().switchToTab(3);
+        SelenideTools.openUrl(Constants.PILOTPROJECTURL);
 
         Pages.pilotProjectPage().enterName(name);
         Pages.pilotProjectPage().enterEmail(email);

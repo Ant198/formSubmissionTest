@@ -32,12 +32,16 @@ public class GameTesterFormSubmissionTest extends BaseTest {
         logInfo("email is " + email);
         logInfo("message is " + message);
 
+        Actions.mainActions().openNewTab();
+        Actions.mainActions().switchToTab(2);
+        SelenideTools.openUrl(Constants.GAMETESTERURL);
+
         Pages.gameTesterPage().selectSection();
         Pages.gameTesterPage().enterName(name);
         Pages.gameTesterPage().enterEmail(email);
         Pages.gameTesterPage().enterMessage(message);
         Pages.gameTesterPage().enterPhone(phone);
-        Pages.automatedTestEnginPage().uploadFile(pathToCV);
+        Pages.gameTesterPage().uploadFile(pathToCV);
         Pages.gameTesterPage().enterCaptcha(Actions.gameTesterActions().getCaptchaResult());
         Pages.gameTesterPage().submitForm();
         Assert.assertTrue(Pages.gameTesterPage().isVisible(), "problems with section selection");
