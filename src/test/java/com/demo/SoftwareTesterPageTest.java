@@ -34,9 +34,7 @@ public class SoftwareTesterPageTest extends BaseTest {
         logInfo("email is " + email);
         logInfo("message is " + message);
 
-        Actions.mainActions().openNewTab();
-        Actions.mainActions().switchToTab(1);
-        SelenideTools.openUrl(Constants.SOFTWARETESTERURL);
+        Actions.softwearTesterActions().openTab();
 
         Pages.softwareTesterPage().selectSection();
         Pages.softwareTesterPage().enterName(name);

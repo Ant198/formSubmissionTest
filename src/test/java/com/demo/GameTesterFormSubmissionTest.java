@@ -32,9 +32,7 @@ public class GameTesterFormSubmissionTest extends BaseTest {
         logInfo("email is " + email);
         logInfo("message is " + message);
 
-        Actions.mainActions().openNewTab();
-        Actions.mainActions().switchToTab(2);
-        SelenideTools.openUrl(Constants.GAMETESTERURL);
+        Actions.gameTesterActions().openTab();
 
         Pages.gameTesterPage().selectSection();
         Pages.gameTesterPage().enterName(name);

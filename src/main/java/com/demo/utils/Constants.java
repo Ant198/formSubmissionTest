@@ -1,7 +1,8 @@
 package com.demo.utils;
 
 public class Constants {
-    public static String URL = "https://testmatick.com/contact-us/";
+    public static String URL = "https://testmatick.com/";
+    public static String CONTACTURL = "https://testmatick.com/contact-us/";
     public static String PILOTPROJECTURL = "https://testmatick.com/pilot-project/";
     public static String AUTOMATEDTESTENGINURL = "https://testmatick.com/automated-test-engineer/";
     public static String GAMETESTERURL = "https://testmatick.com/game-tester/";

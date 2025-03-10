@@ -37,6 +37,8 @@ public class ContactFormSubmissionTest extends BaseTest {
         logInfo("email is " + email);
         logInfo("message is " + message);
 
+        Actions.contactActions().openTab();
+
         Pages.contactPage().enterName(name);
         Pages.contactPage().enterEmail(email);
         Pages.contactPage().enterMessage(message);

@@ -1,6 +1,7 @@
 package com.demo;
 
 import com.demo.actions.Actions;
+import com.demo.actions.AutomatedTestEnginActions;
 import com.demo.core.base.BaseTest;
 import com.demo.pages.Pages;
 import com.demo.utils.Constants;
@@ -32,9 +33,7 @@ public class AutomatedTestEnginPageTest extends BaseTest {
         logInfo("email is " + email);
         logInfo("message is " + message);
 
-        Actions.mainActions().openNewTab();
-        Actions.mainActions().switchToTab(1);
-        SelenideTools.openUrl(Constants.AUTOMATEDTESTENGINURL);
+        Actions.automatedTestEnginActions().openTab();
 
         Pages.automatedTestEnginPage().selectSection();
         Pages.automatedTestEnginPage().enterName(name);
