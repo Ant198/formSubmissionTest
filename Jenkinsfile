@@ -10,11 +10,9 @@ pipeline {
     post {
         always {
           testNG()
-          allure includeProperties:
-                               false,
-                               jdk: '',
-                               results: [[path: 'allure-results']],
-                               commandline: 'Allure-2.32.2'
+          allure includeProperties: false,
+                jdk: '',
+                results: [[path: 'allure-results']]
         }
       }
 }
