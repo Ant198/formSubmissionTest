@@ -22,7 +22,7 @@ import java.util.List;
 @Owner("QA Fedorov Anton")
 public class ContactFormSubmissionTest extends BaseTest {
 
-    @Test(description = "firstTest")
+    @Test(description = "contactFormSubmissionTests")
 
     public void formSubmissionTest() throws CsvException {
         List<String[]> data = CsvReader.readCSV(Constants.CSVPATH);
