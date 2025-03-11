@@ -13,7 +13,8 @@ pipeline {
           allure includeProperties:
                                false,
                                jdk: '',
-                               results: [[path: 'allure-results']]
+                               results: [[path: 'allure-results']],
+                               commandline: 'Allure-2.32.2'
         }
       }
 }
