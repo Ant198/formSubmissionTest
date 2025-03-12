@@ -1,4 +1,4 @@
-FROM maven:3.9.9-eclipse-temurin-21
+FROM maven:3.9.9-amazoncorretto-21-al2023
 
 RUN apt-get update && apt-get install -y \
     git wget curl unzip \
