@@ -35,7 +35,7 @@ public class TestListener implements ITestListener {
     public void onTestSkipped(ITestResult iTestResult) {
         LOG.error("SKIPPED test: {}", getTestMethodName(iTestResult));
         AllureTools.attachScreenshot();
-        //AllureTools.attachLogFile();
+        AllureTools.attachLogFile();
     }
 
     @Override
