@@ -24,7 +24,6 @@ public class BaseTest extends AllureLogger {
         SelenideConfig.createBrowserConfig(System.getProperty("selenide.browser", "chrome"));
         configLog(this.getClass().getSimpleName());
         logInfo("Open browser...");
-        Selenide.
         Selenide.open();
     }
 
