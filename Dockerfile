@@ -1,11 +1,12 @@
-FROM maven:3.9.9-eclipse-temurin-21
+FROM maven:3.9.9-amazoncorretto-21
 
-# Оновлення пакетів і встановлення необхідних утиліт
+# Оновлення apt і встановлення необхідних пакетів
 RUN apt-get update && apt-get install -y \
     wget \
     curl \
     gnupg \
     unzip \
+    git \
     xvfb \
     && rm -rf /var/lib/apt/lists/*
 
@@ -21,13 +22,10 @@ RUN wget -O /tmp/chromedriver.zip https://storage.googleapis.com/chrome-for-test
     && chmod +x /usr/local/bin/chromedriver \
     && rm -rf /tmp/chromedriver.zip /tmp/chromedriver-linux64
 
-ENV DISPLAY=:99
+# Клонування репозиторію з тестами
+RUN git clone https://github.com/Ant198/formSubmissionTest.git /app
 
-# Встановлення робочої директорії
 WORKDIR /app
 
-# Копіювання файлів проєкту
-COPY . .
-
-# Запуск тестів Maven
+# Запуск тестів з використанням Xvfb для віртуального дисплею
 CMD ["bash", "-c", "Xvfb :99 -ac & export DISPLAY=:99 && mvn clean test"]
