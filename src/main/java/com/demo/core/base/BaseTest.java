@@ -1,5 +1,6 @@
 package com.demo.core.base;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.demo.actions.Actions;
 import com.demo.core.allure.AllureLogger;
@@ -21,8 +22,10 @@ public class BaseTest extends AllureLogger {
 
         logInfo("Creating web driver configuration..."); //test
         SelenideConfig.createBrowserConfig(System.getProperty("selenide.browser", "chrome"));
+        SelenideConfig.createBrowserConfig().Co;
         configLog(this.getClass().getSimpleName());
         logInfo("Open browser...");
+        Selenide.
         Selenide.open();
     }
 

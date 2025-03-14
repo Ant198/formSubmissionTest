@@ -62,6 +62,7 @@ public class SelenideConfig {
 
         prefs.put("protocol_handler.excluded_schemes", profile2);
         options.setExperimentalOption("prefs", prefs);
+        options.addArguments("--no-sandbox");
 
         return options;
     }
