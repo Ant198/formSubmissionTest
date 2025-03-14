@@ -1,22 +1,30 @@
-FROM ubuntu:22.04
+FROM maven:3.9.9-amazoncorretto-21
 
+# Оновлення пакетів і встановлення необхідних утиліт
 RUN apt-get update && apt-get install -y \
     wget \
     curl \
     gnupg \
     unzip \
-    openjdk-21-jdk \
-    maven \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN wget -qO- https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/google-chrome.gpg && \
-        echo "deb [signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list > /dev/null && \
-        apt-get update && apt-get install -y google-chrome-stable && rm -rf /var/lib/apt/lists/* \
+# Завантаження та встановлення Google Chrome
+RUN wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    && dpkg -i google-chrome-stable_current_amd64.deb || apt-get install -fy \
+    && rm -f google-chrome-stable_current_amd64.deb
 
+# Завантаження та встановлення ChromeDriver
 RUN wget -O /tmp/chromedriver.zip https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.88/linux64/chromedriver-linux64.zip \
     && unzip /tmp/chromedriver.zip -d /tmp/ \
     && mv /tmp/chromedriver-linux64/chromedriver /usr/local/bin/chromedriver \
     && chmod +x /usr/local/bin/chromedriver \
-    && rm -rf /tmp/*
+    && rm -rf /tmp/chromedriver.zip /tmp/chromedriver-linux64
+
+# Встановлення робочої директорії
 WORKDIR /app
+
+# Копіювання файлів проєкту
 COPY . .
-CMD [ "mvn", "clean", "test"]
+
+# Запуск тестів Maven
+CMD ["mvn", "clean", "test"]
