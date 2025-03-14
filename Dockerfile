@@ -1,4 +1,4 @@
-FROM maven:3.9.9-amazoncorretto-21
+FROM maven:3.9.9-openjdk-21-slim
 
 # Оновлення apt і встановлення необхідних пакетів
 RUN apt-get update && apt-get install -y \
