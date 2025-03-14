@@ -31,7 +31,7 @@ RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.d
 # Завантаження та встановлення ChromeDriver
 
 RUN wget https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.88/linux64/chromedriver-linux64.zip \
-    && unzip chromedriver.zip\
+    && unzip chromedriver-linux64.zip\
     && mv chromedriver /usr/local/bin/chromedriver \
     && chmod +x /usr/local/bin/chromedriver
 
