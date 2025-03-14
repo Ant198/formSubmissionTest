@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     gnupg \
     unzip \
+    xvfb \
     && rm -rf /var/lib/apt/lists/*
 
 # Завантаження та встановлення Google Chrome
@@ -20,6 +21,8 @@ RUN wget -O /tmp/chromedriver.zip https://storage.googleapis.com/chrome-for-test
     && chmod +x /usr/local/bin/chromedriver \
     && rm -rf /tmp/chromedriver.zip /tmp/chromedriver-linux64
 
+ENV DISPLAY=:99
+
 # Встановлення робочої директорії
 WORKDIR /app
 
@@ -27,4 +30,4 @@ WORKDIR /app
 COPY . .
 
 # Запуск тестів Maven
-CMD ["mvn", "clean", "test"]
+CMD ["bash", "-c", "Xvfb :99 -ac & export DISPLAY=:99 && mvn clean test"]
