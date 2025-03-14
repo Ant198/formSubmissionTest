@@ -33,7 +33,7 @@ RUN wget -q -O chrome-linux64.zip https://storage.googleapis.com/chrome-for-test
 
 # Завантаження та встановлення ChromeDriver
 
-wget -q -O chromedriver-linux64.zip https://bit.ly/chromedriver-linux64-121-0-6167-85 && \
+RUN wget -q -O chromedriver-linux64.zip https://bit.ly/chromedriver-linux64-121-0-6167-85 && \
     unzip -j chromedriver-linux64.zip chromedriver-linux64/chromedriver && \
     rm chromedriver-linux64.zip && \
     mv chromedriver /usr/local/bin/
