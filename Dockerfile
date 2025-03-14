@@ -25,20 +25,29 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Завантаження та встановлення Google Chrome
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
-    && dpkg -i google-chrome-stable_current_amd64.deb || apt-get install -fy
+RUN wget -q -O chrome-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.88/linux64/chrome-linux64.zip \
+    && unzip chrome-linux64.zip \
+    && rm chrome-linux64.zip \
+    && mv chrome-linux64 /opt/chrome/ \
+    && ln -s /opt/chrome/chrome /usr/local/bin/
 
 # Завантаження та встановлення ChromeDriver
 
+wget -q -O chromedriver-linux64.zip https://bit.ly/chromedriver-linux64-121-0-6167-85 && \
+    unzip -j chromedriver-linux64.zip chromedriver-linux64/chromedriver && \
+    rm chromedriver-linux64.zip && \
+    mv chromedriver /usr/local/bin/
+
 RUN wget https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.88/linux64/chromedriver-linux64.zip \
-    && unzip chromedriver-linux64.zip\
-    && mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver \
-    && chmod +x /usr/local/bin/chromedriver
+    && unzip -j chromedriver-linux64.zip chromedriver-linux64/chromedriver \
+    && rm chromedriver-linux64.zip \
+    && mv chromedriver /usr/local/bin/
+
 
 # Клонування репозиторію з тестами
 RUN git clone https://github.com/Ant198/formSubmissionTest.git /app
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
 ENV DISPLAY=:99
 
