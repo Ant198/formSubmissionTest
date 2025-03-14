@@ -1,6 +1,5 @@
 package com.demo.core.base;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.demo.actions.Actions;
 import com.demo.core.allure.AllureLogger;
