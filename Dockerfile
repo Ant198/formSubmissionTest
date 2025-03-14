@@ -47,7 +47,7 @@ RUN wget https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.88/
 # Клонування репозиторію з тестами
 RUN git clone https://github.com/Ant198/formSubmissionTest.git /app
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 ENV DISPLAY=:99
 
