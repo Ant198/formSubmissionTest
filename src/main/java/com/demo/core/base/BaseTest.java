@@ -7,10 +7,14 @@ import com.demo.core.config.SelenideConfig;
 import com.demo.utils.Constants;
 import com.demo.utils.SelenideTools;
 import org.checkerframework.checker.units.qual.C;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
+import java.net.URL;
 import java.util.ArrayList;
 
 @Listeners({TestListener.class})
@@ -18,9 +22,9 @@ public class BaseTest extends AllureLogger {
 
     @BeforeTest(alwaysRun = true, description = "Opening web browser...")
     public void setUp() throws Exception {
-
         logInfo("Creating web driver configuration..."); //test
         SelenideConfig.createBrowserConfig(System.getProperty("selenide.browser", "chrome"));
+        System.setProperty("selenide.remote", "http://localhost:4444/wd/hub");
         configLog(this.getClass().getSimpleName());
         logInfo("Open browser...");
         Selenide.open();
