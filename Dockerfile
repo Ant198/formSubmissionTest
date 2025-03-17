@@ -22,13 +22,13 @@ RUN apt-get update && apt-get install -y \
      && mv chrome-linux64 /opt/chrome/ \
      && ln -s /opt/chrome/chrome /usr/local/bin/
 
-RUN useradd -ms /bin/bash chromeuser
-USER chromeuser
-
 # Клонування репозиторію з тестами
 RUN git clone https://github.com/Ant198/formSubmissionTest.git /app
 
 WORKDIR /app
 
+COPY . .
 
-CMD ["mvn", "clean", "test"]
+RUN mvn clean test -DskipTests
+
+CMD ["mvn", "clean", "test", "-DskipTests"]
