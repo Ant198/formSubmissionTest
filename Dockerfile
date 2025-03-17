@@ -3,6 +3,7 @@ FROM maven:3.9.9-eclipse-temurin-21
 RUN apt-get update && apt-get install -y \
         wget \
         gnupg2 \
+        unzip \
         ca-certificates \
         libx11-dev \
         libxcomposite-dev \
@@ -21,13 +22,13 @@ RUN apt-get update && apt-get install -y \
      && mv chrome-linux64 /opt/chrome/ \
      && ln -s /opt/chrome/chrome /usr/local/bin/
 
+RUN useradd -ms /bin/bash chromeuser
+USER chromeuser
+
 # Клонування репозиторію з тестами
 RUN git clone https://github.com/Ant198/formSubmissionTest.git /app
 
 WORKDIR /app
 
-COPY . .
 
-RUN mvn clean test -DskipTests
-
-CMD ["mvn", "clean", "teest", "-DskipTests"]
+CMD ["mvn", "clean", "test"]
