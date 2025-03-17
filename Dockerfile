@@ -1,6 +1,6 @@
 FROM maven:3.9.9-eclipse-temurin-21
 
-RUN RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y \
         wget \
         gnupg2 \
         ca-certificates \
