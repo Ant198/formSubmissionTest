@@ -1,10 +1,11 @@
 version: "3"
 services:
   selenium:
-    image: selenium/standalone-chrome:134.0
+    image: selenium/standalone-chrome:later
     container_name: selenium
     ports:
       - "4444:4444"
+      - "7900:7900"
 
   tests:
     build: .
