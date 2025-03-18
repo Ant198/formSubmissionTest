@@ -7,8 +7,7 @@ FROM maven:3.9.9-eclipse-temurin-21
 WORKDIR /app
 
 COPY . .
-COPY src/test/resources/data.csv .
-COPY src/test/resources/Resume.pdf .
+
 
 RUN mvn clean test -DskipTests
 
