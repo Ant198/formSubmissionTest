@@ -4,10 +4,6 @@ RUN git clone https://github.com/Ant198/formSubmissionTest.git /app
 
 WORKDIR /app
 
-COPY pom.xml .
-
-COPY src ./src
-
 RUN mvn clean test -DskipTests
 
 CMD ["mvn", "clean", "test"]
