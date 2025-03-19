@@ -7,5 +7,5 @@ public class Constants {
     public static String AUTOMATEDTESTENGINURL = "https://testmatick.com/automated-test-engineer/";
     public static String GAMETESTERURL = "https://testmatick.com/game-tester/";
     public static String SOFTWARETESTERURL = "https://testmatick.com/junior-software-tester/";
-    public static String CSVPATH = "src\\test\\resources\\data.csv";
+    public static String CSVPATH = "src/test/resources/data.csv";
 }
