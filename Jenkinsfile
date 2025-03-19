@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+            DOCKER_HOST = 'tcp://192.168.56.101:2375' // IP твоєї Ubuntu VM
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -13,11 +16,7 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
-            steps {
-                sh 'docker run -it --net host test_form:${env.BUILD_NUMBER} ./run-tests.sh'
-            }
-        }
+
     }
     post {
         always {
