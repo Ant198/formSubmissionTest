@@ -8,7 +8,6 @@ WORKDIR /app
 
 COPY . .
 
-
 RUN mvn clean test -DskipTests
 
 CMD ["mvn", "clean", "test"]
