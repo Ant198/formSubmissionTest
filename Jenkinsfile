@@ -10,7 +10,7 @@ pipeline {
          stage('build') {
             steps {
                 script{
-                    sh 'docker build -t test_form${BUILD_NUMBER} .'
+                    sh 'docker build -t test_form .'
                 }
             }
          }
@@ -18,7 +18,7 @@ pipeline {
         stage('run test') {
             steps {
                 script {
-                    sh 'docker run -it --net test-network test_form_c test_form${BUILD_NUMBER}'
+                    sh 'docker run -it --net test-network test_form_c test_form'
                 }
             }
         }
