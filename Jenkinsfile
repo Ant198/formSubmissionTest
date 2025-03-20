@@ -7,12 +7,15 @@ pipeline {
             }
         }
 
-        stage('test') {
-            steps {
-                script {
-                    sh 'docker compose up --build'
+         stage('build') {
+                    steps {
+                        sh 'docker build -t test_form${env.BUILD_NUMBER}'
+                    }
                 }
 
+        stage('run test') {
+            steps {
+                sh 'docker run -it --net test-network test_form_c test_form${env.BUILD_NUMBER}'
             }
         }
 
