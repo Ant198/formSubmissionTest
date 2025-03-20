@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-            DOCKER_HOST = 'tcp://192.168.56.101:2375' // IP твоєї Ubuntu VM
+            DOCKER_HOST = 'tcp://10.254.230.202:2375' // IP твоєї Ubuntu VM
     }
     stages {
         stage('Checkout') {
