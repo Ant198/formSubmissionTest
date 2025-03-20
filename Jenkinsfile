@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment {
-            DOCKER_HOST = 'tcp://10.254.230.202:2375' // IP твоєї Ubuntu VM
-    }
     stages {
         stage('Checkout') {
             steps {
@@ -14,6 +11,11 @@ pipeline {
                 script {
                     dockerImage = docker.build("test_form:${env.BUILD_NUMBER}")
                 }
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'docker run -it -p 4444:4444 test_form:${env.BUILD_NUMBER}'
             }
         }
 
