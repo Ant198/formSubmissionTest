@@ -23,7 +23,8 @@ services:
   test:
     build: .
     container_name: test_form_c
-    depends_on: selenium
+    depends_on:
+      - selenium
     environment:
       - SELENIUM_GRID_URL=http://selenium:4444/wd/hub
     networks:
