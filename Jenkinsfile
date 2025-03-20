@@ -30,10 +30,9 @@ pipeline {
                 sh 'docker compose down'
             }
             testNG()
-            allure ([
+            allure includeProperties: false,
+                jdk: '',
                 results: [[path: 'allure-results']]
-            ])
-
         }
     }
 }
