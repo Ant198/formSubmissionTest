@@ -8,14 +8,18 @@ pipeline {
         }
 
          stage('build') {
-                    steps {
-                        sh 'docker build -t test_form${env.BUILD_NUMBER}'
-                    }
+            steps {
+                script{
+                    sh 'docker build -t test_form${env.BUILD_NUMBER} .'
                 }
+            }
+         }
 
         stage('run test') {
             steps {
-                sh 'docker run -it --net test-network test_form_c test_form${env.BUILD_NUMBER}'
+                script {
+                    sh 'docker run -it --net test-network test_form_c test_form${env.BUILD_NUMBER}'
+                }
             }
         }
 
