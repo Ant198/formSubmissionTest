@@ -1,7 +1,13 @@
 pipeline {
     agent any
     stages {
-        stage('build and test') {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Ant198/formSubmissionTest.git'
+            }
+        }
+
+         stage('build and test') {
             steps {
                 script{
                     sh 'docker compose up --build test-runner'
