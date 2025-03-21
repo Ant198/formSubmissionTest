@@ -29,6 +29,7 @@ public class BaseTest extends AllureLogger {
         configLog(this.getClass().getSimpleName());
         logInfo("Open browser...");
         Selenide.open();
+        Configuration.timeout = 10000;
     }
 
 
