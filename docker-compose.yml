@@ -9,6 +9,16 @@ services:
     networks:
       - test-network
 
+  test-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: test-runner
+    depends_on:
+      - selenium
+    networks:
+      - test-network
+
 volumes:
   jenkins_home:
 
