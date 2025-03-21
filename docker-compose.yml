@@ -18,6 +18,12 @@ services:
       - selenium
     networks:
       - test-network
+    watch:
+      test-runner:
+        paths:
+          - ./src
+          - ./pom.xml
+        action: rebuild
 
 volumes:
   jenkins_home:

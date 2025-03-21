@@ -7,22 +7,13 @@ pipeline {
             }
         }
 
-         stage('build') {
+         stage('build and test') {
             steps {
                 script{
-                    sh 'docker build -t test_form .'
+                    sh 'docker compose up'
                 }
             }
          }
-
-        stage('run test') {
-            steps {
-                script {
-                    sh 'docker run -it --net test-network test_form_c test_form'
-                }
-            }
-        }
-
     }
     post {
         always {
