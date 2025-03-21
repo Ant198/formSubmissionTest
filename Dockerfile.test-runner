@@ -2,6 +2,10 @@ FROM maven:3.9.9-eclipse-temurin-21
 
 WORKDIR /app
 
-CMD ["/bin/bash", "-c", "mvn clean test"]
+COPY . /app
+
+RUN mvn clean test
+
+CMD ["mvn", "clean", "test"]
 
 

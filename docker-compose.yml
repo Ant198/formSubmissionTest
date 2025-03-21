@@ -37,7 +37,7 @@ services:
     networks:
       - test-network
     volumes:
-      - .:/app
+   #   - .:/app
 
 volumes:
   jenkins_home:
