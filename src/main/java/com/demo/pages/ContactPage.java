@@ -44,6 +44,7 @@ public class ContactPage extends PageTools {
     }
 
     public Boolean getSuccessMessage() {
+        waitForElementVisibility(successMessageLocator);
         return isElementVisible(successMessageLocator);
     }
 

@@ -70,6 +70,7 @@ public class GameTesterPage extends PageTools {
     public String getPhone() { return getElementAttributeValue("value", phoneFieldLocator);}
 
     public Boolean getSuccessMessage() {
+        waitForElementVisibility(successMessageLocator);
         return isElementVisible(successMessageLocator);
     }
 
