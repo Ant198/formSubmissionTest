@@ -36,6 +36,8 @@ services:
       - selenium
     networks:
       - test-network
+    volumes:
+      - .:/app
 
 volumes:
   jenkins_home:
