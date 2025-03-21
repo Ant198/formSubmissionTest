@@ -1,6 +1,9 @@
 version: '3'
 services:
   jenkins:
+    build:
+      context: .
+      dockerfile: Dockerfile.jenkins
     image: jenkins/jenkins:lts-jdk21
     container_name: jenkins
     restart: always
@@ -27,7 +30,7 @@ services:
   test-runner:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.test-runner
     container_name: test-runner
     depends_on:
       - selenium
