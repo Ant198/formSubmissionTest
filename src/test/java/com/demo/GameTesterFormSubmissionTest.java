@@ -55,6 +55,7 @@ public class GameTesterFormSubmissionTest extends BaseTest {
         Assert.assertEquals(Pages.gameTesterPage().getPhone(),phone, "problems entering phone number");
         Assert.assertTrue(Pages.gameTesterPage().verifySuccesText(), "problems with update files");
         Assert.assertEquals(Pages.gameTesterPage().getCaptcha(), Actions.gameTesterActions().getCaptchaResult(), "problems entering captcha");
+        Selenide.sleep(10000);
         Assert.assertTrue(Pages.gameTesterPage().getSuccessMessage(), "problems sending the form");
     }
 }

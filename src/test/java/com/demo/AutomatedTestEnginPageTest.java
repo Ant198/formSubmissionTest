@@ -45,7 +45,6 @@ public class AutomatedTestEnginPageTest extends BaseTest {
         Pages.automatedTestEnginPage().uploadFile(pathToCV);
         Pages.automatedTestEnginPage().enterCaptcha(Actions.automatedTestEnginActions().getCaptchaResult());
         Pages.automatedTestEnginPage().submitForm();
-        Selenide.sleep(10000);
         Assert.assertTrue(Pages.automatedTestEnginPage().isVisible(), "problems with section selection");
         Assert.assertEquals(Pages.automatedTestEnginPage().getName(), name, "problems entering name");
         Assert.assertEquals(Pages.automatedTestEnginPage().getEmail(), email, "problems entering email");
@@ -53,6 +52,7 @@ public class AutomatedTestEnginPageTest extends BaseTest {
         Assert.assertEquals(Pages.automatedTestEnginPage().getPhone(), phone, "problems entering phone number");
         Assert.assertTrue(Pages.automatedTestEnginPage().verifySuccesText(), "problems with update files");
         Assert.assertEquals(Pages.automatedTestEnginPage().getCaptcha(), Actions.automatedTestEnginActions().getCaptchaResult(), "problems entering captcha");
+        Selenide.sleep(10000);
         Assert.assertTrue(Pages.automatedTestEnginPage().getSuccessMessage(), "problems sending the form");
     }
 }
