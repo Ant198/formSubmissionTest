@@ -10,7 +10,7 @@ pipeline {
          stage('build and test') {
             steps {
                 script{
-                    sh 'docker compose up --build selenium test-runner'
+                    sh 'docker compose up --build test-runner'
                 }
             }
          }
