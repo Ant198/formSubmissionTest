@@ -1,5 +1,6 @@
 package com.demo;
 
+import com.codeborne.selenide.Selenide;
 import com.demo.actions.Actions;
 import com.demo.core.base.BaseTest;
 import com.demo.pages.Pages;
@@ -44,6 +45,7 @@ public class GameTesterFormSubmissionTest extends BaseTest {
         Pages.gameTesterPage().enterMessage(message);
         Pages.gameTesterPage().enterPhone(phone);
         Pages.gameTesterPage().uploadFile(pathToCV);
+
         Pages.gameTesterPage().enterCaptcha(Actions.gameTesterActions().getCaptchaResult());
         Pages.gameTesterPage().submitForm();
         Assert.assertTrue(Pages.gameTesterPage().isVisible(), "problems with section selection");

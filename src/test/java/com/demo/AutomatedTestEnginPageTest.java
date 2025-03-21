@@ -1,5 +1,6 @@
 package com.demo;
 
+import com.codeborne.selenide.Selenide;
 import com.demo.actions.Actions;
 import com.demo.core.base.BaseTest;
 import com.demo.pages.Pages;
@@ -44,6 +45,7 @@ public class AutomatedTestEnginPageTest extends BaseTest {
         Pages.automatedTestEnginPage().uploadFile(pathToCV);
         Pages.automatedTestEnginPage().enterCaptcha(Actions.automatedTestEnginActions().getCaptchaResult());
         Pages.automatedTestEnginPage().submitForm();
+        Selenide.sleep(10000);
         Assert.assertTrue(Pages.automatedTestEnginPage().isVisible(), "problems with section selection");
         Assert.assertEquals(Pages.automatedTestEnginPage().getName(), name, "problems entering name");
         Assert.assertEquals(Pages.automatedTestEnginPage().getEmail(), email, "problems entering email");
