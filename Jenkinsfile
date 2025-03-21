@@ -17,13 +17,14 @@ pipeline {
     }
     post {
         always {
-            script {
-                sh 'docker compose down'
-            }
+
             testNG()
             allure includeProperties: false,
                 jdk: '',
                 results: [[path: 'allure-results']]
+            script {
+                            sh 'docker compose down'
+                        }
         }
     }
 }
