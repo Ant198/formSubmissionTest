@@ -4,8 +4,8 @@ WORKDIR /app
 
 RUN git clone https://github.com/Ant198/formSubmissionTest.git /app
 
-RUN mvn clean test -DskipTests
+RUN mvn clean test
 
-CMD ["mvn", "clean", "test"]
+CMD ["/bin/sh", "-c", "mvn clean test && cp target/surefire-reports/testng-results.xml /app/testng-results.xml"]
 
 
