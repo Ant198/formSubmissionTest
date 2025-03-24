@@ -6,6 +6,4 @@ COPY . /app
 
 RUN mvn clean test
 
-CMD ["mvn", "clean", "test"]
-
 
