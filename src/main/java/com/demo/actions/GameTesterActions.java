@@ -1,6 +1,5 @@
 package com.demo.actions;
 
-import com.codeborne.selenide.Selenide;
 import com.demo.pages.Pages;
 import com.demo.utils.Constants;
 import com.demo.utils.SelenideTools;
@@ -15,5 +14,6 @@ public class GameTesterActions {
         Actions.mainActions().openNewTab();
         Actions.mainActions().switchToTab(2);
         SelenideTools.openUrl(Constants.GAMETESTERURL);
+
     }
 }

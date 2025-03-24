@@ -39,6 +39,7 @@ public class GameTesterFormSubmissionTest extends BaseTest {
 
         Actions.gameTesterActions().openTab();
 
+
         Pages.gameTesterPage().selectSection();
         Pages.gameTesterPage().enterName(name);
         Pages.gameTesterPage().enterEmail(email);
