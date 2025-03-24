@@ -71,7 +71,7 @@ public class SoftwareTesterPage extends PageTools {
     }
 
     public Boolean getSuccessMessage() {
-        waitForElementVisibility(successMessageLocator);
+        waitForElementPresent(successMessageLocator);
         return isElementVisible(successMessageLocator);
     }
 
