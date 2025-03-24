@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent docker { image: maven:3.9.9-eclipse-temurin-21 }
     stages {
         stage('Checkout') {
             steps {
@@ -10,7 +10,7 @@ pipeline {
          stage('build and test') {
             steps {
                 script{
-                    sh 'docker compose up --build test-runner'
+                    sh 'mvn clean test'
                 }
             }
          }
