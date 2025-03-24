@@ -7,6 +7,14 @@ pipeline {
             }
         }
 
+        stage('run selenium') {
+                    steps {
+                        script{
+                            sh 'docker compose up selenium'
+                        }
+                    }
+                 }
+
          stage('build and test') {
             steps {
                 script{
