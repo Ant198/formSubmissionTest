@@ -10,7 +10,7 @@ pipeline {
         stage('build and test') {
             steps {
                 script{
-                    sh 'docker compose up --build selenium test-runner'
+                    sh 'docker compose up --build test-runner'
                     sh 'docker cp test-runner:/app/target/surefire-reports/testng-results.xml $WORKSPACE/testng-results.xml'
                 }
             }
@@ -23,8 +23,8 @@ pipeline {
                 jdk: '',
                 results: [[path: 'allure-results']]
             script {
-                            sh 'docker compose down'
-                        }
+                sh 'docker compose down'
+            }
         }
     }
 }
