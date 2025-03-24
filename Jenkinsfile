@@ -7,7 +7,7 @@ pipeline {
             }
         }
 
-        stage(run allure') {
+        stage('run allure') {
                     steps {
                         script{
                             sh 'docker compose up --build allure allure_ui'
