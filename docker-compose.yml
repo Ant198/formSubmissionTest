@@ -36,8 +36,8 @@ services:
       - selenium
     networks:
       - test-network
-    #volumes:
-   #   - .:/app
+    volumes:
+      - ./allure-results:/app/allure-results
 
 volumes:
   jenkins_home:

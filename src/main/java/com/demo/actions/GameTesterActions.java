@@ -7,7 +7,6 @@ import com.demo.utils.SelenideTools;
 
 public class GameTesterActions {
     public String getCaptchaResult() {
-        Selenide.sleep(10000);
         String[] expression = Pages.gameTesterPage().getQuestionCaptcha().trim().split(" ");
         return (Integer.parseInt(expression[0]) + Integer.parseInt(expression[2])) + "";
     }
