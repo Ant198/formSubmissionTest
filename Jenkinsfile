@@ -7,18 +7,10 @@ pipeline {
             }
         }
 
-        stage('run selenium') {
-                    steps {
-                        script{
-                            sh 'docker compose up selenium'
-                        }
-                    }
-                 }
-
-         stage('build and test') {
+        stage('build and test') {
             steps {
                 script{
-                    sh 'docker compose up --build test-runner'
+                    sh 'docker compose up --build selenium test-runner'
                     sh 'docker cp test-runner:/app/target/surefire-reports/testng-results.xml $WORKSPACE/testng-results.xml'
                 }
             }
