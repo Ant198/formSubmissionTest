@@ -52,7 +52,6 @@ public class AutomatedTestEnginPageTest extends BaseTest {
         Assert.assertEquals(Pages.automatedTestEnginPage().getPhone(), phone, "problems entering phone number");
         Assert.assertTrue(Pages.automatedTestEnginPage().verifySuccesText(), "problems with update files");
         Assert.assertEquals(Pages.automatedTestEnginPage().getCaptcha(), Actions.automatedTestEnginActions().getCaptchaResult(), "problems entering captcha");
-        Selenide.sleep(10000);
         Assert.assertTrue(Pages.automatedTestEnginPage().getSuccessMessage(), "problems sending the form");
     }
 }

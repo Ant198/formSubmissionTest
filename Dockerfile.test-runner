@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY . /app
 
+COPY allure-results .
+
 CMD ["mvn", "clean", "test"]
 
 
