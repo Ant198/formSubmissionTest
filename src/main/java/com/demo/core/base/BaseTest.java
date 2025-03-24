@@ -25,7 +25,7 @@ public class BaseTest extends AllureLogger {
     public void setUp() throws Exception {
         logInfo("Creating web driver configuration..."); //test
         SelenideConfig.createBrowserConfig(System.getProperty("selenide.browser", "chrome"));
-        Configuration.remote = "http://selenium:4444/wd/hub";
+        //Configuration.remote = "http://selenium:4444/wd/hub";
         configLog(this.getClass().getSimpleName());
         logInfo("Open browser...");
         Selenide.open();
