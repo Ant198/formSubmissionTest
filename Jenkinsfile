@@ -7,12 +7,19 @@ pipeline {
             }
         }
 
+        stage(run allure') {
+                    steps {
+                        script{
+                            sh 'docker compose up --build allure allure_ui'
+                        }
+                    }
+                 }
+
          stage('build and test') {
             steps {
                 script{
                     sh 'docker compose up --build test-runner'
                     sh 'docker cp test-runner:/app/target/surefire-reports/testng-results.xml $WORKSPACE/testng-results.xml'
-                    sh 'unzip allure-results.zip -d allure-results'
                 }
             }
          }
