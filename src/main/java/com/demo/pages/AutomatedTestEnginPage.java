@@ -76,6 +76,7 @@ public class AutomatedTestEnginPage extends PageTools {
     }
 
     public String getCaptcha() {
+        waitForElementVisibility(captchaLocator);
         return getElementAttributeValue("value", captchaLocator);
     }
 
