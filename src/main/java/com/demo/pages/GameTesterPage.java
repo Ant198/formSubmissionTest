@@ -79,6 +79,7 @@ public class GameTesterPage extends PageTools {
     }
 
     public String getQuestionCaptcha() {
+        waitForElementVisibility(questionCaptchaLocator);
         return getElementText(questionCaptchaLocator);
     }
 
