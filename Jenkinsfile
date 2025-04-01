@@ -21,6 +21,7 @@ pipeline {
     post {
         always {
             testNG()
+            sh 'docker compose up -d allure'
             allure includeProperties: false,
                 jdk: '',
                 results: [[path: 'allure-results']]
