@@ -12,6 +12,8 @@ pipeline {
                 script{
                     sh 'docker compose up --build test-runner'
                     sh 'docker cp test-runner:/app/target/surefire-reports/testng-results.xml $WORKSPACE/testng-results.xml'
+                    sh 'docker cp test-runner:/app/allure-results $WORKSPACE/allure-results'
+
                 }
             }
          }
