@@ -14,7 +14,7 @@ pipeline {
                     sh 'docker cp test-runner:/app/target/surefire-reports/testng-results.xml $WORKSPACE/testng-results.xml'
                     sh 'rm -rf $WORKSPACE/allure-results'
                     sh 'mkdir -p $WORKSPACE/allure-results'
-                    sh 'docker cp test-runner:/app/allure-results $WORKSPACE/allure-results'
+                    sh 'docker cp test-runner:/app/allure-results/. $WORKSPACE/allure-results'
 
                 }
             }
@@ -23,6 +23,7 @@ pipeline {
     post {
         always {
             testNG()
+            sh 'docker compose up -d allure'
             allure includeProperties: false,
                 jdk: '',
                 results: [[path: 'allure-results']]
